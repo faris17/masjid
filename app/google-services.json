@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "619119991820",
+    "project_id": "informasimasjid-98af7",
+    "storage_bucket": "informasimasjid-98af7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619119991820:android:d9b7cba664f0323487e229",
+        "android_client_info": {
+          "package_name": "com.myapplication.informasimasjid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "619119991820-b702ibof0sraf8ie34tiaourljpuftig.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.myapplication.informasimasjid",
+            "certificate_hash": "c05f0bf96f8a6af86c0509f9d1713d456898d103"
+          }
+        },
+        {
+          "client_id": "619119991820-k0ghqbsgtuiv4sv9mubuoul4jh026oma.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2ssZB_uvZEfKvXyUCW348u-7z8RyIfaw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "619119991820-k0ghqbsgtuiv4sv9mubuoul4jh026oma.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/hari_senin"
+        android:title="Senin"/>
+    <item
+        android:id="@+id/hari_selasa"
+        android:title="Selasa"/>
+    <item
+        android:id="@+id/hari_rabu"
+        android:title="Rabu"/>
+    <item
+        android:id="@+id/hari_kamis"
+        android:title="Kamis"/>
+    <item
+        android:id="@+id/hari_jumat"
+        android:title="Jumat"/>
+    <item
+        android:id="@+id/hari_sabtu"
+        android:title="Sabtu"/>
+    <item
+        android:id="@+id/hari_ahad"
+        android:title="Ahad"/>
+
+</menu>

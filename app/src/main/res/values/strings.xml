@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Informasi Masjid</string>
+    <string name="skip">Skip</string>
+    <string name="Simpan">Simpan</string>
+    <string name="keterangan">Keterangan</string>
+    <string name="informasikeuangan"><![CDATA[Pemasukan & Pengeluaran Keuangan]]></string>
+    <string name="informasitpa">Informasi Mengenai TPA</string>
+    <string name="pengumuman">Pengumuman</string>
+    <string name="jadwal">Jadwal Pendaftaran</string>
+    <string name="jadwalpenutupan">Jadwal Penutupan</string>
+    <string name="jadwalpendaftaran">Jadwal Pendaftaran</string>
+    <string name="linkpendaftaran">Link Pendaftaran</string>
+</resources>
