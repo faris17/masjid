@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginLeft="30dp">
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="20dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,12 +23,16 @@
             <RelativeLayout
                 android:orientation="vertical"
                 android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:background="@drawable/blue">
+                android:layout_height="130dp">
+                <ImageView
+                    android:id="@+id/brosur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/blue"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/keterangankeuangan"
+                    android:id="@+id/harikegiatan"
                     android:textStyle="bold"
                     android:textColor="@color/white"
                     android:layout_centerVertical="true"
@@ -118,6 +123,24 @@
             android:layout_height="wrap_content"
             android:gravity="start"
             android:textColor="@color/colorTextSecondary"
+            android:text="Tema"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/temakegiatan"
+            android:layout_marginLeft="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="Tema Kegiatan"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:textColor="@color/colorTextSecondary"
             android:text="Penceramah"
             android:textSize="13sp"
             android:textStyle="bold" />
@@ -149,5 +172,58 @@
             android:text="Keterangan deskripsi"
             android:textSize="13sp"
             android:textStyle="bold" />
+
+        <TextView
+            android:textColor="@color/colorTextSecondary"
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="Link Youtube"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+        <TextView
+            android:textColor="@color/colorTextSecondary"
+            android:id="@+id/linkyoutube"
+            android:layout_marginLeft="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text=""
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorTextPrimary"
+                android:text="Edit" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/btnDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:backgroundTint="@color/red"
+                   android:layout_marginLeft="10dp"
+                    android:text="Delete"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="15dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

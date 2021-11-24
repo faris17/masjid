@@ -55,68 +55,162 @@
 
 
     </RelativeLayout>
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="16dp">
-
-        <TextView
-            android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/pengumuman" />
-        <TextView
-            android:id="@+id/pengumumantpa"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/pengumuman" />
+            android:orientation="vertical"
+            android:layout_margin="16dp">
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:id="@+id/brosurtpa"
+                    android:src="@drawable/tpa"
+                    android:layout_marginBottom="10dp"
+                    />
+                <Button
+                    android:id="@+id/btnShare"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/share"
+                    android:layout_marginRight="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="40dp"
+                    android:padding="10dp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/colorTextPrimary"
+                    />
+
+            </RelativeLayout>
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/jadwalpendaftaran" />
+                android:text="@string/pengumuman" />
             <TextView
-                android:layout_marginLeft="10dp"
-                android:id="@+id/jadwalpendaftaran"
+                android:id="@+id/pengumumantpa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/jadwalpendaftaran" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
+                android:text="@string/pengumuman"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/jadwalpendaftaran"
+                    android:textColor="@color/colorTextPrimary" />
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/jadwalpendaftaran"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/jadwalpendaftaran" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/colorTextPrimary"
+                    android:text="@string/jadwalpenutupan" />
+
+                <TextView
+                    android:id="@+id/jadwalpenutupan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/jadwalpenutupan" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/jadwalpenutupan" />
-            <TextView
-                android:layout_marginLeft="10dp"
-                android:id="@+id/jadwalpenutupan"
+                android:layout_marginBottom="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/linkpendaftaran" />
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/linkpendaftaran"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/linkpendaftaran" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contact" />
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/nomorcontact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contact" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/jadwalpenutupan" />
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnEdit"
+                    android:layout_marginTop="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Edit"
+                    android:layout_marginRight="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="40dp"
+                    android:padding="10dp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/colorTextSecondary"
+                    android:visibility="gone"
+                    />
+                <Button
+                    android:id="@+id/btnNambah"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Tambah"
+                    android:layout_marginRight="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="40dp"
+                    android:padding="10dp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/colorTextSecondary"
+                    />
+
+
+            </LinearLayout>
+
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/linkpendaftaran" />
-            <TextView
-                android:layout_marginLeft="10dp"
-                android:id="@+id/linkpendaftaran"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/jadwalpenutupan" />
-        </LinearLayout>
-    </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

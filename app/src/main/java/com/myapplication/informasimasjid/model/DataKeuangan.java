@@ -6,19 +6,29 @@ import java.util.Map;
 public class DataKeuangan {
 
     private String id;
-    private String harga;
+    private String nominal;
     private String kategori;
     private String keterangan;
     private String tanggal;
+    private Long time;
 
     public DataKeuangan(){}
 
-    public DataKeuangan(String id,String harga, String kategori, String keterangan, String tanggal) {
+    public DataKeuangan(String id,String nominal, String kategori, String keterangan, String tanggal, Long time) {
         this.id = id;
-        this.harga = harga;
+        this.nominal = nominal;
         this.kategori = kategori;
         this.keterangan = keterangan;
         this.tanggal = tanggal;
+        this.time = time;
+    }
+
+    public Number getTime() {
+        return time;
+    }
+
+    public void setTime(Long time) {
+        this.time = time;
     }
 
     public String getId() {
@@ -29,12 +39,12 @@ public class DataKeuangan {
         this.id = id;
     }
 
-    public String getHarga() {
-        return harga;
+    public String getNominal() {
+        return nominal;
     }
 
-    public void setHarga(String harga) {
-        this.harga = harga;
+    public void setNominal(String nominal) {
+        this.nominal = nominal;
     }
 
     public String getKategori() {
@@ -64,7 +74,7 @@ public class DataKeuangan {
     public Map<String, Object> toMap() {
 
         HashMap<String, Object> result = new HashMap<>();
-        result.put("harga", this.harga);
+        result.put("nominal", this.nominal);
         result.put("kategori", this.kategori);
         result.put("keterangan", this.keterangan);
         result.put("tanggal", this.tanggal);

@@ -8,8 +8,6 @@
     tools:context="com.myapplication.informasimasjid.LoginActivity">
 
 
-
-
     <ImageView
         android:id="@+id/logo"
         android:layout_width="150dp"
@@ -17,7 +15,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="80dp"
-        android:src="@drawable/ic_gold_medal"
+        android:src="@drawable/iconmasjid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

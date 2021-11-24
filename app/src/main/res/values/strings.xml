@@ -10,4 +10,24 @@
     <string name="jadwalpenutupan">Jadwal Penutupan</string>
     <string name="jadwalpendaftaran">Jadwal Pendaftaran</string>
     <string name="linkpendaftaran">Link Pendaftaran</string>
+    <string name="kategori">Kategori</string>
+    <string name="pemasukan">Pemasukan</string>
+    <string name="pengeluaran">Pengeluaran</string>
+    <string name="hari">Hari</string>
+    <string name="time">Time</string>
+    <string name="Edit">Edit</string>
+    <string name="update">Update</string>
+    <string name="contact">No. Contact</string>
+    <string name="share">Share</string>
+    <string name="Tambah">Tambah</string>
+
+    <string-array name="day_arrays">
+        <item>Senin</item>
+        <item>Selasa</item>
+        <item>Rabu</item>
+        <item>Kamis</item>
+        <item>Jumat</item>
+        <item>Sabtu</item>
+        <item>Ahad</item>
+    </string-array>
 </resources>

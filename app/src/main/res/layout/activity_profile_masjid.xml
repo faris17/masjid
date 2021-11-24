@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".halaman.masjid.ProfileMasjidActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@drawable/masjid2"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textSize="20dp"
+        android:text="  Masjid baitul inayah, yang bertempat di
+jl. Bangau II RT 03 RW 03 berdiri pada tahun
+2000 dengan nama \n'Mushola Baitul Inayah\'
+yang mana diketuai oleh Bapak Mustofa.\n\n
+  beliau menggerakan lapisan masyarakat sekitar
+untuk membangun mushola tersebut hingga
+bisa menjadi Masjid seperti sekarang ini.
+Tanah Masjid Baitul Inayah merupakan
+tanah Wakaf.
+\n \nNo. Handphone Pengurus:
+081343192368"
+        />
+
+</LinearLayout>

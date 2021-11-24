@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -23,7 +23,6 @@
                 android:background="@drawable/gradient"
                 >
 
-
                 <TextView
                     android:id="@+id/myDashboard"
                     android:layout_width="wrap_content"
@@ -34,6 +33,7 @@
                     android:layout_margin="20dp"
                     android:textColor="@android:color/white"
                     />
+
                 <TextView
                     android:id="@+id/dashboard_name"
                     android:layout_width="wrap_content"
@@ -41,20 +41,34 @@
                     android:text="Fulan"
                     android:textSize="15sp"
                     android:layout_below="@id/myDashboard"
-                    android:layout_alignEnd="@id/myDashboard"
+                    android:layout_alignStart="@id/myDashboard"
                     android:layout_marginTop="-20dp"
                     android:textStyle="bold"
                     android:textColor="@android:color/white"
                     />
-
-
-                <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/profile"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/myDashboard"
-                    />
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/profilemasjid"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/iconmasjid"
+                        />
+
+                    <ImageView
+                        android:id="@+id/btnSignOut"
+                        android:layout_width="26dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="35dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_sign_out" />
+
+                </LinearLayout>
 
 
             </RelativeLayout>
@@ -214,8 +228,14 @@
 
             </GridLayout>
 
+
         </LinearLayout>
+
+
+
     </ScrollView>
 
 
-</LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -9,7 +9,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -34,15 +35,20 @@
                     android:textSize="18dp"
                     android:textAlignment="center" />
 
-                <Button
+                <TextView
                     android:layout_marginTop="10dp"
-                    android:id="@+id/button"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableEnd="@drawable/ic_keyboard_arrow_down"
-                    android:drawableRight="@drawable/ic_keyboard_arrow_down"
-                    android:drawablePadding="8dp"
                     android:text="Pilih Hari" />
+
+                <Spinner
+                    android:layout_marginTop="4dp"
+                    android:id="@+id/chooseDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/day_arrays"
+                    android:prompt="@string/hari" />
+
 
                 <com.rengwuxian.materialedittext.MaterialEditText
                     android:id="@+id/namakegiatan"
@@ -71,11 +77,36 @@
                     android:textSize="16sp"
                     app:met_floatingLabel="highlight" />
 
-                <com.rengwuxian.materialedittext.MaterialEditText
-                    android:id="@+id/waktukegiatan"
+                <Button
+                    android:layout_marginTop="7dp"
+                    android:id="@+id/bt_showtimepicker"
+                    android:text="Show TimePicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Waktu Kegiatan"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Waktu dipilih : "
+                        android:textSize="20sp"/>
+                    <TextView
+                        android:id="@+id/tv_timeresult"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Waktu dipilih : "
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/tempatkegiatan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tempat"
                     android:inputType="textMultiLine"
                     android:textSize="16sp"
                     app:met_floatingLabel="highlight" />
@@ -89,17 +120,64 @@
                     android:textSize="16sp"
                     app:met_floatingLabel="highlight" />
 
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/linkyoutube"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Link youtube"
+                    android:textSize="16sp"
+                    app:met_floatingLabel="highlight" />
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!--Button for choosing image from gallery-->
+                    <Button
+                        android:id="@+id/chooseFile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Choose File"
+                        />
+                    <!--Image View for showing image choosen from gallery-->
+                    <ImageView
+                        android:layout_marginLeft="150dp"
+                        android:id="@+id/imgView"
+                        android:layout_width="140dp"
+                        android:layout_height="100dp"/>
+                </RelativeLayout>
 
                 <Button
                     android:id="@+id/btnsave"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/Simpan"
-                    android:layout_margin="6dp" />
+                    android:layout_margin="6dp"
+                    />
+
+                <Button
+                    android:id="@+id/btnEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorTextPrimary"
+                    android:text="@string/update"
+                    android:layout_margin="6dp"
+                    />
+
+                <ProgressBar
+                    android:id="@+id/progressbar"
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toTopOf="@+id/signup_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/password" />
+
             </LinearLayout>
-
-
         </LinearLayout>
     </ScrollView>
 

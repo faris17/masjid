@@ -1,68 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background">
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:background="@color/colorPrimary"
-            android:src="@drawable/keuangan"
-            android:id="@+id/header"/>
 
-        <TextView
-            android:id="@+id/saldosekarang"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/header"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="5dp"
-            android:textAlignment="center"
-            android:text="Saldo sekarang"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:textSize="15sp" />
-
-        <FrameLayout
-            android:padding="10dp"
+    <LinearLayout
+        android:id="@+id/viewMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <ImageView
-                android:id="@+id/btnbacktoHome"
                 android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:background="@color/colorPrimary"
+                android:src="@drawable/keuangan"
+                android:id="@+id/header"/>
+
+            <TextView
+                android:id="@+id/saldosekarang"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_action_back"
+                android:layout_alignBottom="@+id/header"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp"
+                android:textAlignment="center"
+                android:text="Saldo sekarang"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <FrameLayout
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/btnbacktoHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_action_back"
+                    />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/promosikeuangan"
+                android:layout_below="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:shadowColor="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:text="@string/informasikeuangan"
                 />
-        </FrameLayout>
 
-        <TextView
-            android:id="@+id/promosikeuangan"
-            android:layout_below="@+id/header"
+
+        </RelativeLayout>
+        <!-- TODO: Update blank fragment layout -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_keuangan"
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            android:shadowColor="@color/colorPrimary"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-            android:text="@string/informasikeuangan"
-            />
+            android:layout_height="match_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:src="@drawable/ic_add"
+        app:layout_anchor="@id/viewMain"
+        app:layout_anchorGravity="bottom|end|right"
+        android:visibility="gone"/>
 
 
-    </RelativeLayout>
 
-    <!-- TODO: Update blank fragment layout -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_keuangan"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

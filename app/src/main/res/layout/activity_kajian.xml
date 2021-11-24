@@ -1,55 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/background">
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:background="@color/colorPrimary"
-            android:src="@drawable/kajian"
-            android:id="@+id/header"/>
 
-        <TextView
-            android:id="@+id/saldosekarang"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/header"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:textAlignment="center"
-            android:text="Jadwal Kajian"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:textSize="15sp" />
-
-        <FrameLayout
-            android:padding="10dp"
+    <LinearLayout
+        android:id="@+id/viewMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ImageView
-                android:id="@+id/btnbacktoHome"
                 android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:background="@color/colorPrimary"
+                android:src="@drawable/kajian"
+                android:id="@+id/header" />
+
+            <TextView
+                android:id="@+id/saldosekarang"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_action_back"
-                />
-        </FrameLayout>
+                android:layout_alignBottom="@+id/header"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:textAlignment="center"
+                android:text="Jadwal Kajian"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <FrameLayout
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/btnbacktoHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_action_back"
+                    />
+            </FrameLayout>
 
 
 
-    </RelativeLayout>
+        </RelativeLayout>
 
-    <!-- TODO: Update blank fragment layout -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_kajian"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <!-- TODO: Update blank fragment layout -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_kajian"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    </androidx.recyclerview.widget.RecyclerView>
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
 
-</LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        android:src="@drawable/ic_add"
+        app:layout_anchor="@id/viewMain"
+        app:layout_anchorGravity="bottom|end|right"
+        android:visibility="gone"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -30,7 +30,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Form Pemasukan"
+                    android:text="Form Keuangan"
                     android:textStyle="bold"
                     android:textAlignment="center" />
 
@@ -41,6 +41,31 @@
                     android:layout_margin="3dp"
                     android:background="#62DD4C"/>
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/kategori"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="center_vertical"
+                        />
+                    <RadioGroup
+                        android:id="@+id/kategori"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:id="@+id/pemasukan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pemasukan"
+                            android:checked="true"/>
+                        <RadioButton
+                            android:id="@+id/pengeluaran"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pengeluaran"/>
+                    </RadioGroup>
                 <TextView
                     android:layout_margin="10dp"
                     android:textSize="20sp"
@@ -50,7 +75,7 @@
 
                 <EditText
                     android:layout_margin="6dp"
-                    android:id="@+id/namayangsedekah"
+                    android:id="@+id/keterangan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Tulis Sumber Uang" />
@@ -60,7 +85,7 @@
                     android:layout_height="wrap_content">
                     <EditText
                         android:layout_margin="6dp"
-                        android:id="@+id/jumlahuangsedekah"
+                        android:id="@+id/jumlahuang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Jumlah Nominal" />
@@ -74,11 +99,25 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/btnsavesedekah"
+                    android:id="@+id/btnsave"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/Simpan"
                     android:layout_margin="6dp" />
+
+
+                <ProgressBar
+                    android:id="@+id/progressbar"
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toTopOf="@+id/signup_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/password" />
             </LinearLayout>
 
 

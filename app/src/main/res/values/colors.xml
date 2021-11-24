@@ -6,5 +6,6 @@
     <color name="colorTextPrimary">#003165</color>
     <color name="colorTextSecondary">#6B707E</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF0000</color>
     <color name="colorOnboardingIndicatorInactive">#00FF54</color>
 </resources>

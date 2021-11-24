@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.myapplication.informasimasjid">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
@@ -11,26 +14,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".halaman.datajamaah.JamaahActivity"></activity>
+        <activity android:name=".halaman.masjid.ProfileMasjidActivity"></activity>
+        <activity android:name=".halaman.datajamaah.JamaahActivity" />
         <activity android:name=".halaman.informasi_kegiatan.KegiatanActivity" />
         <activity android:name=".halaman.informasi_tpa.TpaActivity" />
         <activity android:name=".halaman.jadwal_kajian.KajianActivity" />
         <activity android:name=".halaman.keuangan.KeuanganActivity" />
         <activity android:name=".Registeractivity" />
-        <activity android:name=".LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".LoginActivity" />
         <activity android:name=".halaman.informasi_tpa.FormInformasiTPA" />
         <activity android:name=".halaman.jadwal_kajian.FormJadwalKajian" />
         <activity android:name=".halaman.informasi_kegiatan.FormKegiatan" />
         <activity android:name=".halaman.datajamaah.FormDataJamaah" />
         <activity android:name=".halaman.keuangan.FormKeuangan" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
