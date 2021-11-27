@@ -112,7 +112,6 @@ public class TpaActivity extends AppCompatActivity {
                                 }
                             }
 
-
                             vpengumumantpa.setText(pengumuman);
                             vjadwalpendaftaran.setText(jadwalpendaftaran);
                             vjadwalpenutupan.setText(jadwalpenutupan);

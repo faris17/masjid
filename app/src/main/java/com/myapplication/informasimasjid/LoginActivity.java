@@ -22,7 +22,6 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     EditText emailLogin,passwordLogin;
     Button Login;
-    TextView linkRegister;
     ProgressBar progressBarLogin;
     FirebaseAuth firebaseAuth;
 
@@ -34,7 +33,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         emailLogin = findViewById(R.id.email);
         passwordLogin = findViewById(R.id.password);
         Login = findViewById(R.id.login);
-        linkRegister = findViewById(R.id.signup_text);
         progressBarLogin = findViewById(R.id.progressbar);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -45,7 +43,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
         Login.setOnClickListener(this);
-        linkRegister.setOnClickListener(this);
 
         progressBarLogin.setVisibility(View.GONE);
 
@@ -54,11 +51,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.signup_text:
-                Intent intent = new Intent(this, Registeractivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                break;
 
             case R.id.login:
                 progressBarLogin.setVisibility(View.VISIBLE);

@@ -28,6 +28,7 @@ import com.myapplication.informasimasjid.R;
 import com.myapplication.informasimasjid.adapter.KajianAdapter;
 import com.myapplication.informasimasjid.adapter.KeuanganAdapter;
 import com.myapplication.informasimasjid.halaman.keuangan.FormKeuangan;
+import com.myapplication.informasimasjid.library.Session;
 import com.myapplication.informasimasjid.model.DataKajian;
 import com.myapplication.informasimasjid.model.DataKeuangan;
 
@@ -52,6 +53,8 @@ public class KajianActivity extends AppCompatActivity implements View.OnClickLis
 
     FirebaseAuth firebaseAuth;
 
+    Session sharedPrefManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,12 +72,14 @@ public class KajianActivity extends AppCompatActivity implements View.OnClickLis
 
         recyclerView.setHasFixedSize(true);
 
+        sharedPrefManager = new Session(this);
+
         mManager = new LinearLayoutManager(this);
         mManager.setReverseLayout(true);
         mManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(mManager);
 
-        if(firebaseAuth.getCurrentUser()!=null){
+        if(!firebaseAuth.getCurrentUser().getUid().equals("") && sharedPrefManager.getSes_level().equals("1")){
             buttonAdd.setVisibility(View.VISIBLE);
             buttonAdd.setOnClickListener(this);
         }

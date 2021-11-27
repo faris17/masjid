@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".halaman.masjid.ProfileMasjidActivity"></activity>
+        <activity android:name=".halaman.keuangan.RekapKeuangan" />
+        <activity android:name=".halaman.masjid.ProfileMasjidActivity" />
         <activity android:name=".halaman.datajamaah.JamaahActivity" />
         <activity android:name=".halaman.informasi_kegiatan.KegiatanActivity" />
         <activity android:name=".halaman.informasi_tpa.TpaActivity" />

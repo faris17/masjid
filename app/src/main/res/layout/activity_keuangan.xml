@@ -59,6 +59,19 @@
                 android:textAlignment="center"
                 android:text="@string/informasikeuangan"
                 />
+            <TextView
+                android:id="@+id/linkrekap"
+                android:layout_below="@+id/promosikeuangan"
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:shadowColor="@color/white"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:text="@string/linkkeuangan"
+                />
 
 
         </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.myapplication.informasimasjid;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
@@ -23,9 +24,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -77,7 +82,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         //inisialisasi authentikasi
         mAuth = FirebaseAuth.getInstance();
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
+        user = mAuth.getCurrentUser();
         signout = findViewById(R.id.btnSignOut);
 
         textName = findViewById(R.id.dashboard_name);
@@ -91,21 +96,33 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         firestoreDB = FirebaseFirestore.getInstance();
 
         sharedPrefManager = new Session(this);
+        System.out.println("data user"+ user.getUid());
+        System.out.println("print level"+ sharedPrefManager.getSes_level());
+        if (!user.getUid().isEmpty()) {
 
-        if (user != null) {
             //GET LEVEL FROM child users
             //get saldo keuangan
-            firestoreDB.collection("users").document(user.getUid())
-                    .addSnapshotListener((EventListener<DocumentSnapshot>) (documentSnapshots, e) -> {
-                        if (e != null) {
-                            Log.e(TAG, "Listen failed!", e);
-                            return;
+            DocumentReference docRef = firestoreDB.collection("users").document(user.getUid());
+            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        assert document != null;
+                        if (document.exists()) {
+                            sharedPrefManager.saveLevel(Session.Ses_level, (String) document.get("level"));
                         }
-                        if(documentSnapshots.get("level") != null) {
-                            sharedPrefManager.saveSPString(Session.Ses_level, (String) documentSnapshots.get("level"));
+                        else {
+                            Log.d(TAG, "DocumentSnapshot gagal ");
                         }
+                    } else {
+                        Toast.makeText(getApplicationContext(), "ERROR al Realizar la validacion de Correo"+ task.getException(), Toast.LENGTH_SHORT).show();
 
-                    });
+                        return;
+                    }
+                }
+            } );
+
 
             // Name, email address etc
             String name = user.getDisplayName();
@@ -210,8 +227,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 //END NOTIF
             }
         });
-        //pusher end
+
     }
+    //pusher end
 
     @Override
     public void onClick(View view) {
@@ -250,8 +268,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        mAuth.signOut();
-                        signout.setImageDrawable(getBaseContext().getDrawable(R.drawable.ic_login));
+                        FirebaseAuth.getInstance().signOut();
+                        Intent login = new Intent(getApplicationContext(), LoginActivity.class);
+                        login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(login);
+                        finish();
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {

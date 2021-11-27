@@ -122,27 +122,11 @@ public class FormKegiatan extends AppCompatActivity implements View.OnClickListe
         noteDataMap.put("tanggal", dtgl);
 
         if(idkey != null){
-            //show progress
+            //process edit
             informasiRef.document(idkey).update(noteDataMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void avoid) {
-                    AsyncHttpClient client = new AsyncHttpClient();
-                    RequestParams params = new RequestParams();
-                    params.put("nama", dkegiatan);
-                    params.put("message", dket.substring(0,30));
 
-                    client.post("http://192.168.1.10/informasimasjid/send.php", params, new AsyncHttpResponseHandler(){
-
-                        @Override
-                        public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-
-                        }
-
-                        @Override
-                        public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-
-                        }
-                    });
                     Toast.makeText(getApplicationContext(), "Berhasil update", Toast.LENGTH_SHORT).show();
 
                 }
@@ -157,7 +141,6 @@ public class FormKegiatan extends AppCompatActivity implements View.OnClickListe
         }
         else {
 
-
             //show progress
             save.setVisibility(View.GONE);
             noteDataMap.put("created", timeMilli);
@@ -165,6 +148,26 @@ public class FormKegiatan extends AppCompatActivity implements View.OnClickListe
             informasiRef.add(noteDataMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                 @Override
                 public void onSuccess(DocumentReference documentReference) {
+
+                    //send notif
+                    AsyncHttpClient client = new AsyncHttpClient();
+                    RequestParams params = new RequestParams();
+                    params.put("title", dkegiatan.toString());
+                    params.put("message", dket.substring(0,30).toString());
+
+                    client.post("http://192.168.1.10/informasimasjid/send.php", params, new AsyncHttpResponseHandler(){
+
+                        @Override
+                        public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+
+                        }
+
+                        @Override
+                        public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+
+                        }
+                    });
+                    //end send notif
                     Toast.makeText(getApplicationContext(), "Berhasil disimpan", Toast.LENGTH_SHORT).show();
                     Log.d("pesan", "DocumentSnapshot written with ID: " + documentReference.getId());
                 }

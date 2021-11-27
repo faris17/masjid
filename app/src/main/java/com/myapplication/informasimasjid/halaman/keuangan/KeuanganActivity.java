@@ -40,6 +40,7 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class KeuanganActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -56,7 +57,7 @@ public class KeuanganActivity extends AppCompatActivity implements View.OnClickL
     ListenerRegistration firestoreListener;
 
     private LinearLayoutManager mManager;
-    TextView textsaldosekarang;
+    TextView textsaldosekarang, linkrekapkeuangan;
 
     FirebaseAuth firebaseAuth;
 
@@ -71,6 +72,7 @@ public class KeuanganActivity extends AppCompatActivity implements View.OnClickL
 
         recyclerView = findViewById(R.id.list_keuangan);
         textsaldosekarang = findViewById(R.id.saldosekarang);
+        linkrekapkeuangan = findViewById(R.id.linkrekap);
         buttonAdd = findViewById(R.id.fabAdd);
 
         kursIdr = (DecimalFormat) DecimalFormat.getCurrencyInstance();
@@ -101,6 +103,11 @@ public class KeuanganActivity extends AppCompatActivity implements View.OnClickL
 
         loadKeuanganList();
 
+        if(!firebaseAuth.getCurrentUser().getUid().equals("") && sharedPrefManager.getSes_level().equals("2")){
+            buttonAdd.setVisibility(View.VISIBLE);
+            buttonAdd.setOnClickListener(this);
+        }
+
         firestoreListener = firestoreDB.collection("keuangan")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
@@ -123,14 +130,12 @@ public class KeuanganActivity extends AppCompatActivity implements View.OnClickL
                     }
                 });
 
-        if(firebaseAuth.getCurrentUser()!=null && sharedPrefManager.getSes_level().equals("2")){
-            buttonAdd.setVisibility(View.VISIBLE);
-            buttonAdd.setOnClickListener(this);
-        }
 
         back.setOnClickListener(view -> {
             super.onBackPressed();
         });
+
+        linkrekapkeuangan.setOnClickListener(this);
 
         //get saldo keuangan
         firestoreDB.collection("saldosekarang").document("now")
@@ -194,6 +199,10 @@ public class KeuanganActivity extends AppCompatActivity implements View.OnClickL
             case R.id.fabAdd:
                 Intent intent = new Intent(this, FormKeuangan.class);
                 startActivity(intent);
+                break;
+            case R.id.linkrekap:
+                Intent pagerekap = new Intent(this, RekapKeuangan.class);
+                startActivity(pagerekap);
                 break;
         }
     }

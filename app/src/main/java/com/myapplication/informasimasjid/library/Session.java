@@ -7,7 +7,7 @@ public class Session{
     private static final String ses_aplikasi       = "aplikasi";
     public static final String Ses_boarding      = "false";
     public static final String Ses_nama      = "nama";
-    public static final String Ses_level = "level";
+    public static final String Ses_level = "1";
 
     private static final String SUDAH_LOGIN = "SudahLogin";
 
@@ -21,6 +21,11 @@ public class Session{
 
     public void saveSPString(String keySP, String value){
         Editor.putString(keySP, value);
+        Editor.commit();
+    }
+
+    public void saveLevel(String keyLevel, String value){
+        Editor.putString(keyLevel, value);
         Editor.commit();
     }
     public void saveBoarding(String keyBoarding, boolean value){
