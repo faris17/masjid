@@ -101,7 +101,7 @@ public class RekapKeuangan extends AppCompatActivity implements View.OnClickList
         firebaseAuth = FirebaseAuth.getInstance();
         sharedPrefManager = new Session(this);
 
-        if(firebaseAuth.getCurrentUser().getUid().equals("") || sharedPrefManager.getSes_level().equals("1")){
+        if(firebaseAuth.getCurrentUser() ==null || sharedPrefManager.getSes_level().equals("1")){
             formkeuangan.setVisibility(View.GONE);
         }
 

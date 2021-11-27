@@ -103,7 +103,7 @@ public class KeuanganActivity extends AppCompatActivity implements View.OnClickL
 
         loadKeuanganList();
 
-        if(!firebaseAuth.getCurrentUser().getUid().equals("") && sharedPrefManager.getSes_level().equals("2")){
+        if(firebaseAuth.getCurrentUser() !=null && sharedPrefManager.getSes_level().equals("2")){
             buttonAdd.setVisibility(View.VISIBLE);
             buttonAdd.setOnClickListener(this);
         }

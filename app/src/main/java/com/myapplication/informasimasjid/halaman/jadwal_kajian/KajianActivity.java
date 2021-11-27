@@ -79,7 +79,7 @@ public class KajianActivity extends AppCompatActivity implements View.OnClickLis
         mManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(mManager);
 
-        if(!firebaseAuth.getCurrentUser().getUid().equals("") && sharedPrefManager.getSes_level().equals("1")){
+        if(firebaseAuth.getCurrentUser() !=null  && sharedPrefManager.getSes_level().equals("1")){
             buttonAdd.setVisibility(View.VISIBLE);
             buttonAdd.setOnClickListener(this);
         }

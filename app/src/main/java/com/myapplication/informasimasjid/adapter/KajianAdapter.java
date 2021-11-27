@@ -111,7 +111,9 @@ public class KajianAdapter extends RecyclerView.Adapter<KajianAdapter.MyViewHold
 
         holder.link.setOnClickListener(view ->{
             Uri uri = Uri.parse(linkyoutube);
-            this.context.startActivity( new Intent( Intent.ACTION_VIEW, uri ) );
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
         });
 
         if(mAuth.getCurrentUser()==null || sharedPrefManager.getSes_level().equals("2")){

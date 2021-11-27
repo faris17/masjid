@@ -96,9 +96,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         firestoreDB = FirebaseFirestore.getInstance();
 
         sharedPrefManager = new Session(this);
-        System.out.println("data user"+ user.getUid());
-        System.out.println("print level"+ sharedPrefManager.getSes_level());
-        if (!user.getUid().isEmpty()) {
+        if (mAuth.getCurrentUser() != null) {
 
             //GET LEVEL FROM child users
             //get saldo keuangan
