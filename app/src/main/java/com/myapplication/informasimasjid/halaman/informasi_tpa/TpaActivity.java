@@ -2,14 +2,18 @@
 package com.myapplication.informasimasjid.halaman.informasi_tpa;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.telephony.PhoneNumberUtils;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
@@ -19,6 +23,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,16 +36,22 @@ import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.myapplication.informasimasjid.MainActivity;
 import com.myapplication.informasimasjid.R;
 import com.myapplication.informasimasjid.adapter.KeuanganAdapter;
 import com.myapplication.informasimasjid.halaman.jadwal_kajian.FormJadwalKajian;
 import com.myapplication.informasimasjid.library.Session;
 import com.myapplication.informasimasjid.model.DataKeuangan;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+
+import static android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION;
 
 public class TpaActivity extends AppCompatActivity {
     private static final String TAG = "TPA_activity";
@@ -53,6 +65,8 @@ public class TpaActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
 
     Session sharedPrefManager;
+
+    Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -189,17 +203,29 @@ public class TpaActivity extends AppCompatActivity {
 //
         share.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-                Uri screenshotUri = Uri.parse("android.resource://com.android.test/*");
-                try {
-                    InputStream stream = getContentResolver().openInputStream(screenshotUri);
-                } catch (FileNotFoundException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-                sharingIntent.setType("image/jpeg");
-                sharingIntent.putExtra(Intent.EXTRA_STREAM, screenshotUri);
-                startActivity(Intent.createChooser(sharingIntent, "Share image using"));
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
+                sendIntent.setType("image/jpg");
+
+                Uri uri = getImageUri(getApplicationContext(),bitmap);
+                sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
+                startActivity(Intent.createChooser(sendIntent, "Share image using"));
+//
+//                if (sendIntent.resolveActivity(getApplicationContext().packageManager) != null) {
+//                    context.startActivity(sendIntent)
+//                }
+//                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+//                Uri screenshotUri = Uri.parse("android.resource://com.android.test/* ");
+//                try {
+//                    InputStream stream = getContentResolver().openInputStream(screenshotUri);
+//                } catch (FileNotFoundException e) {
+//                     TODO Auto-generated catch block
+//                    e.printStackTrace();
+//                }
+//                sharingIntent.setType("image/jpeg");
+//                sharingIntent.putExtra(Intent.EXTRA_STREAM, screenshotUri);
+//                startActivity(Intent.createChooser(sharingIntent, "Share image using"));
             }
         });
 //
@@ -228,11 +254,27 @@ public class TpaActivity extends AppCompatActivity {
 
             // Got the download URL for 'images/brosur.png'
             Glide.with(context)
+                    .asBitmap()
                     .load(uri)
-                    .into(foto);
+                    .into(new SimpleTarget<Bitmap>() {
+                        @Override
+                        public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                            // you can do something with loaded bitmap here
+                            foto.setImageBitmap(resource);
+                            bitmap= resource;
+                        }
+
+                    });
         }).addOnFailureListener(exception -> {
             // Handle any errors
             System.out.println("terjadi error");
         });
+    }
+
+    public Uri getImageUri(Context inContext, Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(this.getContentResolver(), inImage, UUID.randomUUID().toString() + ".png", "drawing");
+        return Uri.parse(path);
     }
 }

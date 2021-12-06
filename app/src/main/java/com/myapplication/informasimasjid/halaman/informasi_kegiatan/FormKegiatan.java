@@ -155,7 +155,7 @@ public class FormKegiatan extends AppCompatActivity implements View.OnClickListe
                     params.put("title", dkegiatan.toString());
                     params.put("message", dket.substring(0,30).toString());
 
-                    client.post("http://192.168.1.10/informasimasjid/send.php", params, new AsyncHttpResponseHandler(){
+                    client.post("http://papua-code.com/informasimasjid/send.php", params, new AsyncHttpResponseHandler(){
 
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {

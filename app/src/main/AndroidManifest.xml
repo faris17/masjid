@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +17,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".halaman.keuangan.RekapKeuangan" />
         <activity android:name=".halaman.masjid.ProfileMasjidActivity" />
-        <activity android:name=".halaman.datajamaah.JamaahActivity" />
         <activity android:name=".halaman.informasi_kegiatan.KegiatanActivity" />
         <activity android:name=".halaman.informasi_tpa.TpaActivity" />
         <activity android:name=".halaman.jadwal_kajian.KajianActivity" />
@@ -26,7 +26,6 @@
         <activity android:name=".halaman.informasi_tpa.FormInformasiTPA" />
         <activity android:name=".halaman.jadwal_kajian.FormJadwalKajian" />
         <activity android:name=".halaman.informasi_kegiatan.FormKegiatan" />
-        <activity android:name=".halaman.datajamaah.FormDataJamaah" />
         <activity android:name=".halaman.keuangan.FormKeuangan" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity">

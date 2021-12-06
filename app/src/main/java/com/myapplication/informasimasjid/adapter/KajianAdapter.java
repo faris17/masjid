@@ -98,7 +98,7 @@ public class KajianAdapter extends RecyclerView.Adapter<KajianAdapter.MyViewHold
         String keterangan = getListKajian().get(position).getKeterangan();
         String linkyoutube = getListKajian().get(position).getLink();
 
-            getImage("images/"+getListKajian().get(position).getId(), holder.brosur);
+            getImage("images/"+key+".jpg", holder.brosur);
 
         holder.vagenda.setText(namakegiatan);
         holder.vtema.setText(temakegiatan);
@@ -142,7 +142,7 @@ public class KajianAdapter extends RecyclerView.Adapter<KajianAdapter.MyViewHold
                         @Override
                         public void onSuccess(Object o) {
                             //update Saldo setelah berhasil delete
-                            reference.child("images/" + key).delete();
+                            reference.child("images/" + key+".jpg").delete();
                             datakajians.remove(position);
                             Toast.makeText(context, "Data deleted successfully", Toast.LENGTH_SHORT).show();
                         }
